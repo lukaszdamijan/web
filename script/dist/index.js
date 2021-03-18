@@ -28,7 +28,7 @@ class Start {
         const value2 = +this.b.value;
         const value3 = +this.c.value;
         const value4 = +this.d.value;
-        console.log(value1);
+    
         const sum = value1 + value2 + value3 + value4;
         const avg = sum / 4;
         const min = Math.min(value1, value2, value3, value4);
