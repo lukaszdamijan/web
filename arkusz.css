@@ -1,0 +1,12 @@
+body{
+    width: auto;
+    height: auto;
+}
+table{
+    margin: 1% auto;
+    border: 5px solid black;
+    padding: 1%;
+}
+p.first{
+    text-align: center;
+}
