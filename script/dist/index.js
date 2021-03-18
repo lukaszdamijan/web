@@ -1,4 +1,3 @@
-//Witam elo
 class Start {
     constructor() {
         this.startApp();
@@ -18,6 +17,7 @@ class Start {
         this.generateInputs();
         this.number.addEventListener('input', () => this.generateInputs());
     }
+
     generateInputs() {
         let numberSelector = document.querySelector('.data-input');
         numberSelector.innerHTML = "";
@@ -51,6 +51,7 @@ class Start {
         let avg = sum / count;
         this.show(sum, avg, min, max);
     }
+
     show(data1, data2, data3, data4) {
         this.sumInput.value = data1.toString();
         this.avgInput.value = data2.toString();
