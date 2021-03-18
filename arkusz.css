@@ -1,12 +1,43 @@
 body{
-    width: auto;
-    height: auto;
+    padding:1% 10%;
 }
 table{
     margin: 1% auto;
-    border: 5px solid black;
+    
     padding: 1%;
+    border-radius: 5px;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 p.first{
     text-align: center;
+}
+
+input[type=number] {
+    width:30px;
+    display: inline-block;
+    border:1px solid gray;
+    padding:5px;
+    border-radius: 5px;
+}
+
+.data-input{
+    width:80%;
+    display: inline-block;
+    margin: auto;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.inputs{
+    margin:5px 10px;
+    box-sizing: border-box;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+
 }
