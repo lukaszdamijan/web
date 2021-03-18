@@ -1,9 +1,6 @@
 //Witam elo
 class Start{
-    a: HTMLInputElement;
-    b: HTMLInputElement;
-    c: HTMLInputElement;
-    d: HTMLInputElement;
+    number: HTMLInputElement;
 
     sumInput: HTMLInputElement;
     avgInput: HTMLInputElement;
@@ -15,39 +12,65 @@ class Start{
     }
 
     startApp(){
-        this.getinputs();
-        this.inputvalues();
+        this.getOutputs();
+        this.getInputSelector();
     }
 
-    getinputs(){
-        this.a = document.querySelector('#value1');
-        this.b = document.querySelector('#value2');
-        this.c = document.querySelector('#value3');
-        this.d = document.querySelector('#value4');
+    getOutputs(){        
         this.sumInput = document.querySelector('#data1')
         this.avgInput = document.querySelector('#data2')
         this.minInput = document.querySelector('#data3')
         this.maxInput = document.querySelector('#data4')
     }
 
-    inputvalues(){
-        this.a.addEventListener('input', () => this.dane());
-        this.b.addEventListener('input', () => this.dane());
-        this.c.addEventListener('input', () => this.dane());
-        this.d.addEventListener('input', () => this.dane());
+    getInputSelector(){
+
+        this.number = document.querySelector('#input-selector');
+        this.generateInputs();
+        this.number.addEventListener('input', ()=> this.generateInputs());
+        
     }
 
-    dane() {
-        const value1 = parseFloat(this.a.value);
-        const value2 = +this.b.value;
-        const value3 = +this.c.value;
-        const value4 = +this.d.value;
-        console.log("XD");
+    generateInputs() {
+        let numberSelector = document.querySelector('.data-input');
+        numberSelector.innerHTML = "";
+        for (let i = 1; i <= +this.number.value; i++) {
+            let input = '<input id="in' + i + '" class="inputs" type="text">';
+            numberSelector.innerHTML += input;
+            
+        }
 
-        const sum = value1+value2+value3+value4;
-        const avg = sum /4;
-        const min = Math.min(value1,value2,value3,value4);
-        const max = Math.max(value1,value2,value3,value4);
+        for (let i = 1; i <= +this.number.value; i++) {
+            var input = document.querySelector("#in"+i) as HTMLInputElement;
+            input.addEventListener('input', () => this.refresh());
+        }
+    }
+
+    refresh() {
+
+        var sum = 0;
+        var min = undefined;
+        var max = undefined;
+
+        var count = 0;
+        
+
+        for (let i = 1; i <= +this.number.value; i++) {
+            var input = document.querySelector("#in"+i) as HTMLInputElement;
+            if(input.value=="")continue;
+            sum += +input.value;
+            if(min == undefined || input.value<min){
+                min = +input.value;
+            }
+
+            if(max == undefined || input.value>max){
+                max = +input.value;
+            }
+
+            count++;
+        }
+
+        let avg = sum/count;
 
         this.show(sum,avg,min,max);
     }
